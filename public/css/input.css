@@ -1,3 +1,67 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;500;600;700;800;900;1000&family=Nunito:wght@200;300;400;500;600;700;800;900;1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300&display=swap');
+
+@layer base {
+
+    body {
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    * {
+        font-family: 'Nunito', sans-serif;
+    }
+
+    #logo-text-left,
+    #logo-text-right {
+        @apply transition duration-200 ease-in-out
+    }
+
+    #logo-container:hover #logo-text-right {
+        @apply text-accent-light
+    }
+
+    #logo-container:hover #logo-text-left {
+        @apply text-opacity-100
+    }
+
+    .icon path {
+        stroke-width: 0.75px;
+        stroke: white;
+    }
+
+
+    .navbar-link {
+        @apply transition duration-200 ease-in-out
+    }
+
+    .navbar-link:hover {
+        @apply text-accent-light transition duration-200 ease-in-out
+    }
+
+    .github-icon {
+        display: inline;
+        margin: 0;
+        padding: 0;
+        transform: scale(0.25);
+    }
+
+    .glitter-icon {
+        @apply font-black text-lg
+    }
+
+    .accent-text {
+        background-image: linear-gradient(45deg, #8C79FF, #FFA370);
+        background-clip: text;
+        color: transparent;
+        @apply font-black text-lg
+    }
+}
