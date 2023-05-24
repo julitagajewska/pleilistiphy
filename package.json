@@ -3,13 +3,17 @@
     "tailwindcss": "^3.3.2"
   },
   "dependencies": {
+    "autoprefixer": "^10.4.14",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
-    "nodemon": "^2.0.22"
+    "nodemon": "^2.0.22",
+    "postcss": "^8.4.23",
+    "postcss-cli": "^10.1.0"
   },
   "scripts": {
     "start": "node server.js",
-    "dev": "nodemon server.js"
+    "tailwind:css": "postcss ./public/css/input.css -o ./public/css/output.css",
+    "dev": "npm run tailwind:css && nodemon server.js"
   },
   "name": "pleilistiphy",
   "version": "1.0.0",
