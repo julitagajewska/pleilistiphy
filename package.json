@@ -8,7 +8,8 @@
     "express": "^4.18.2",
     "nodemon": "^2.0.22",
     "postcss": "^8.4.23",
-    "postcss-cli": "^10.1.0"
+    "postcss-cli": "^10.1.0",
+    "request": "^2.88.2"
   },
   "scripts": {
     "start": "node server.js",
