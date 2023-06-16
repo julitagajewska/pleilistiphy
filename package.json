@@ -13,7 +13,7 @@
   },
   "scripts": {
     "start": "node server.js",
-    "tailwind:css": "postcss ./public/css/input.css -o ./public/css/output.css",
+    "tailwind:css": "postcss ./public/css/input.css -o ./public/css/output.css --watch",
     "dev": "npm run tailwind:css && nodemon server.js"
   },
   "name": "pleilistiphy",
