@@ -5,17 +5,91 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <base href="/">
-
     <!-- Styles -->
     <link rel="stylesheet" href="/output.css">
     <link rel="stylesheet" href="/input.css">
 
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <title>PleilistiPhy</title>
 </head>
 <body>
-    <h1>Home page :></h1>
-    <script src="/src/scripts/test.js" type="module"></script>
+    <div class="dark">
+        <div class="flex flex-col gap-5 bg-slate-200 dark:bg-zinc-950 w-screen h-screen text-white">
+            <!-- Navbar -->
+            <div class="w-full h-16 flex flex-row justify-between items-center py-4 px-4 sm:px-8 md:px-12 lg:px-16 xl:px-24">
+                <!-- Player + Logo -->
+                <div class="flex flex-row w-fit gap-2 md:gap-4 lg:gap-6 xl:gap-8 items-center">
+                    <button id="player-button" class="relative w-fit h-8 px-2 rounded-full bg-button hover:bg-button-hover transition duration-200 ease-in-out flex flex-row justify-center items-center">
+                        <svg id="icon-sun" class="icon opacity-100 transition duration-200 ease-in-out" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2.25C11.5858 2.25 11.25 2.58579 11.25 3V7C11.25 7.00013 11.25 6.99987 11.25 7L11.25 14.2595C10.5088 13.6299 9.54875 13.25 8.5 13.25C6.15279 13.25 4.25 15.1528 4.25 17.5C4.25 19.8472 6.15279 21.75 8.5 21.75C10.8472 21.75 12.75 19.8472 12.75 17.5C12.75 17.3812 12.7451 17.2635 12.7356 17.1472C12.745 17.0996 12.75 17.0504 12.75 17L12.75 7.75H18C19.5188 7.75 20.75 6.51878 20.75 5C20.75 3.48122 19.5188 2.25 18 2.25H12ZM12.75 6.25H18C18.6904 6.25 19.25 5.69036 19.25 5C19.25 4.30964 18.6904 3.75 18 3.75H12.75V6.25ZM8.5 14.75C6.98122 14.75 5.75 15.9812 5.75 17.5C5.75 19.0188 6.98122 20.25 8.5 20.25C10.0188 20.25 11.25 19.0188 11.25 17.5C11.25 15.9812 10.0188 14.75 8.5 14.75Z" fill="white"/>
+                        </svg>
+                        <svg id="icon-sun" class="hidden sm:md:lg:block icon opacity-100 transition duration-200 ease-in-out" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M16.5303 8.96967C16.8232 9.26256 16.8232 9.73744 16.5303 10.0303L12.5303 14.0303C12.2374 14.3232 11.7626 14.3232 11.4697 14.0303L7.46967 10.0303C7.17678 9.73744 7.17678 9.26256 7.46967 8.96967C7.76256 8.67678 8.23744 8.67678 8.53033 8.96967L12 12.4393L15.4697 8.96967C15.7626 8.67678 16.2374 8.67678 16.5303 8.96967Z" fill="white"/>
+                        </svg>
+                    </button>
+                    <div id="logo-container" class="cursor-pointer text-lg font-bold">
+                        <span id="logo-text-left" class="text-white text-opacity-80">Pleilisti</span><span id="logo-text-right" class="text-accent">Phy</span>
+                    </div>
+                    <!-- Navigation buttons-->
+                    <div class="flex-row gap-4 hidden md:lg:flex">
+                        <button id="backward-button" class="relative w-7 h-7 rounded-full bg-button hover:bg-button-hover transition duration-200 ease-in-out flex flex-row justify-center items-center">
+                            <svg id="icon-sun" class="absolute icon opacity-100 transition duration-200 ease-in-out" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M14.0303 7.46967C14.3232 7.76256 14.3232 8.23744 14.0303 8.53033L10.5607 12L14.0303 15.4697C14.3232 15.7626 14.3232 16.2374 14.0303 16.5303C13.7374 16.8232 13.2626 16.8232 12.9697 16.5303L8.96967 12.5303C8.67678 12.2374 8.67678 11.7626 8.96967 11.4697L12.9697 7.46967C13.2626 7.17678 13.7374 7.17678 14.0303 7.46967Z" fill="white"/>
+                            </svg>
+                        </button>
+                        <button id="forward-button" class="relative w-7 h-7 rounded-full bg-button hover:bg-button-hover transition duration-200 ease-in-out flex flex-row justify-center items-center">
+                            <svg id="icon-sun" class="absolute icon opacity-100 transition duration-200 ease-in-out" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd" d="M9.96967 7.46967C10.2626 7.17678 10.7374 7.17678 11.0303 7.46967L15.0303 11.4697C15.3232 11.7626 15.3232 12.2374 15.0303 12.5303L11.0303 16.5303C10.7374 16.8232 10.2626 16.8232 9.96967 16.5303C9.67678 16.2374 9.67678 15.7626 9.96967 15.4697L13.4393 12L9.96967 8.53033C9.67678 8.23744 9.67678 7.76256 9.96967 7.46967Z" fill="white"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+        
+                <!-- Navigation links -->
+                <nav class="flex flex-row gap-4 text-sm sm:gap-10 xl:gap-20 xl:text-base 2xl:gap-28 justify-center">
+                    <a href="#" class="navbar-link">Favourites</a>
+                    <a href="#" class="navbar-link">Generate</a>
+                    <a href="#" class="navbar-link">Playlists</a>
+                </nav>
+    
+        
+                <!-- Dark mode + Analysis button + User tile-->
+                <div class="flex flex-row items-center justify-end gap-4">
+                    <button id="forward-button" class="relative hidden sm:flex w-8 h-8 rounded-full bg-button hover:bg-button-hover transition duration-200 ease-in-out flex-row justify-center items-center">
+                        <svg id="icon-sun" class="absolute icon opacity-100 transition duration-200 ease-in-out" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 1.25C12.4142 1.25 12.75 1.58579 12.75 2V3C12.75 3.41421 12.4142 3.75 12 3.75C11.5858 3.75 11.25 3.41421 11.25 3V2C11.25 1.58579 11.5858 1.25 12 1.25Z" fill="white"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M6.25 12C6.25 8.82436 8.82436 6.25 12 6.25C15.1756 6.25 17.75 8.82436 17.75 12C17.75 15.1756 15.1756 17.75 12 17.75C8.82436 17.75 6.25 15.1756 6.25 12ZM12 7.75C9.65279 7.75 7.75 9.65279 7.75 12C7.75 14.3472 9.65279 16.25 12 16.25C14.3472 16.25 16.25 14.3472 16.25 12C16.25 9.65279 14.3472 7.75 12 7.75Z" fill="white"/>
+                            <path d="M5.45928 4.39862C5.16638 4.10573 4.69151 4.10573 4.39862 4.39862C4.10572 4.69152 4.10572 5.16639 4.39862 5.45929L5.10572 6.16639C5.39862 6.45929 5.87349 6.45929 6.16638 6.16639C6.45928 5.8735 6.45928 5.39862 6.16638 5.10573L5.45928 4.39862Z" fill="white"/>
+                            <path d="M22.75 12C22.75 12.4142 22.4142 12.75 22 12.75H21C20.5858 12.75 20.25 12.4142 20.25 12C20.25 11.5858 20.5858 11.25 21 11.25H22C22.4142 11.25 22.75 11.5858 22.75 12Z" fill="white"/>
+                            <path d="M19.6014 5.45928C19.8943 5.16638 19.8943 4.69151 19.6014 4.39862C19.3085 4.10572 18.8336 4.10572 18.5407 4.39862L17.8336 5.10572C17.5407 5.39862 17.5407 5.87349 17.8336 6.16638C18.1265 6.45928 18.6014 6.45928 18.8943 6.16638L19.6014 5.45928Z" fill="white"/>
+                            <path d="M12 20.25C12.4142 20.25 12.75 20.5858 12.75 21V22C12.75 22.4142 12.4142 22.75 12 22.75C11.5858 22.75 11.25 22.4142 11.25 22V21C11.25 20.5858 11.5858 20.25 12 20.25Z" fill="white"/>
+                            <path d="M18.8943 17.8336C18.6014 17.5407 18.1266 17.5407 17.8337 17.8336C17.5408 18.1265 17.5408 18.6014 17.8337 18.8943L18.5408 19.6014C18.8337 19.8943 19.3085 19.8943 19.6014 19.6014C19.8943 19.3085 19.8943 18.8336 19.6014 18.5407L18.8943 17.8336Z" fill="white"/>
+                            <path d="M3.75 12C3.75 12.4142 3.41421 12.75 3 12.75H2C1.58579 12.75 1.25 12.4142 1.25 12C1.25 11.5858 1.58579 11.25 2 11.25H3C3.41421 11.25 3.75 11.5858 3.75 12Z" fill="white"/>
+                            <path d="M6.16632 18.8943C6.45921 18.6014 6.45921 18.1265 6.16632 17.8336C5.87342 17.5407 5.39855 17.5407 5.10566 17.8336L4.39855 18.5407C4.10566 18.8336 4.10566 19.3085 4.39855 19.6014C4.69144 19.8943 5.16632 19.8943 5.45921 19.6014L6.16632 18.8943Z" fill="white"/>
+                        </svg>
+                    </button>
+                    <button id="forward-button" class="relative hidden sm:flex w-8 h-8 rounded-full bg-button hover:bg-button-hover transition duration-200 ease-in-out flex-row justify-center items-center">
+                        <svg id="icon-sun" class="absolute opacity-100 transition duration-200 ease-in-out" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M11.25 5.78835C7.59833 6.16364 4.75 9.2492 4.75 13C4.75 17.0041 7.99594 20.25 12 20.25C15.7508 20.25 18.8364 17.4017 19.2117 13.75H12C11.5858 13.75 11.25 13.4142 11.25 13V5.78835ZM3.25 13C3.25 8.16753 7.16751 4.25002 12 4.25002C12.4142 4.25002 12.75 4.58581 12.75 5.00002V12.25H20C20.4142 12.25 20.75 12.5858 20.75 13C20.75 17.8325 16.8325 21.75 12 21.75C7.16751 21.75 3.25 17.8325 3.25 13Z" fill="white"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M15.5 4.67367V9.50002H20.3264C19.7633 7.11562 17.8844 5.2367 15.5 4.67367ZM14.998 3.06167C18.6183 3.5122 21.4878 6.38169 21.9384 10.002C22.0066 10.5501 21.5523 11 21 11H14.5C14.2239 11 14 10.7762 14 10.5V4.00002C14 3.44774 14.45 2.99347 14.998 3.06167Z" fill="white"/>
+                        </svg>
+                    </button>
+                    <button class="bg-button hover:bg-button-hover flex justify-center transition duration-200 ease-in-out w-8 h-8 sm:h-fit sm:w-fit sm:pl-1 sm:pr-1 lg:pl-4 lg:pr-2 py-1 flex-row items-center gap-2 rounded-full">
+                        <p class="text-sm hidden lg:block">Username</p>
+                        <svg id="icon-menu" class="absolute block sm:hidden opacity-100 transition duration-200 ease-in-out" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M19.75 12C19.75 11.5858 19.4142 11.25 19 11.25H5C4.58579 11.25 4.25 11.5858 4.25 12C4.25 12.4142 4.58579 12.75 5 12.75H19C19.4142 12.75 19.75 12.4142 19.75 12Z" fill="white"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M19.75 7C19.75 6.58579 19.4142 6.25 19 6.25H5C4.58579 6.25 4.25 6.58579 4.25 7C4.25 7.41421 4.58579 7.75 5 7.75H19C19.4142 7.75 19.75 7.41421 19.75 7Z" fill="white"/>
+                            <path fill-rule="evenodd" clip-rule="evenodd" d="M19.75 17C19.75 16.5858 19.4142 16.25 19 16.25H5C4.58579 16.25 4.25 16.5858 4.25 17C4.25 17.4142 4.58579 17.75 5 17.75H19C19.4142 17.75 19.75 17.4142 19.75 17Z" fill="white"/>
+                        </svg>
+                        <img class="object-cover w-8 h-8 rounded-full hidden sm:block" src="https://www.shutterstock.com/image-photo/profile-picture-smiling-millennial-asian-260nw-1836020740.jpg" />
+                    </button>
+                </div>
+        
+            </nav>
+            <!-- Router outlet -->
+        </div>
+    </div>
 </body>
 </html>
